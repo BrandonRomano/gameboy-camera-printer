@@ -1,0 +1,9 @@
+# Store the input, and processing directories, but not their files
+input/*
+!input/.gitkeep
+
+processing/*
+!processing/.gitkeep
+
+output/*
+!output/.gitkeep
