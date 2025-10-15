@@ -18,5 +18,3 @@ make watch
 The script will begin listening for images to appear in the `input` directory. Once an image appears, the image will be processed by `gbc.sh` and then it will be sent to the configured printer as well as the `output` directory.
 
 A [Thermal Printer](https://en.wikipedia.org/wiki/Game_Boy_Printer#Thermal_paper) is strongly recommended.
-
-## Example
