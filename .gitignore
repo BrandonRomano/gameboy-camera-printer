@@ -1,9 +1,11 @@
-# Store the input, and processing directories, but not their files
+# Store the input, and processed directories, but not their files
 input/*
 !input/.gitkeep
 
-processing/*
-!processing/.gitkeep
+processed/*
+!processed/.gitkeep
 
 output/*
 !output/.gitkeep
+
+.env
