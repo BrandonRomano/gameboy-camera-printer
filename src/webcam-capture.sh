@@ -28,11 +28,10 @@ take_picture() {
 #
 # imagesnap takes a brief moment to actually take the picture, so I'm adding in
 # an artificial timer here to just indicate how long it takes to take a picture.
-# this is configured to my hardware, so you may need to adjust the timing here.
 #
 countdown() {
-  local total=6
-  for i in 6 5 4 3 2 1 0; do
+  local total=${GBCP_VIDEO_DEVICE_DELAY_HALFSECONDS:-6}
+  for ((i=total; i>=0; i--)); do
     local progress=$((total - i))
     local filled=$((progress * 20 / total))
     local empty=$((20 - filled))
@@ -46,7 +45,8 @@ countdown() {
     if [ "$i" -eq 0 ]; then
       printf "\r[%s] 📸 " "$bar"
     else
-      printf "\r[%s] %d " "$bar" "$i"
+      local display=$(awk "BEGIN {printf \"%.1f\", $i/2}")
+      printf "\r[%s] %s " "$bar" "$display"
     fi
     sleep .5
   done
