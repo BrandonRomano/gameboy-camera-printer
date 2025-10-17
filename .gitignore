@@ -9,3 +9,6 @@ output/*
 !output/.gitkeep
 
 .env
+
+# If you want to use a custom image you can place it at this path
+src/background-override.png

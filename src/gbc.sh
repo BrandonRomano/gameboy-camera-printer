@@ -9,8 +9,15 @@ OUTPUT_FILE="$2"
 PRINT_OPTION="$3"
 TMP_INTERMEDIARY="$(dirname ${INPUT_FILE%.*})/$(basename ${INPUT_FILE%.*}).unscaled.png"
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-BACKGROUND_IMAGE="$SCRIPT_DIR/background.png"
 
+# Determine the background image that we're going to use. If there
+# is an override image, we prefer that, else use the default.
+BACKGROUND_OVERRIDE="$SCRIPT_DIR/background-override.png"
+if [[ -f "$BACKGROUND_OVERRIDE" ]]; then
+  BACKGROUND_IMAGE="$BACKGROUND_OVERRIDE"
+else
+  BACKGROUND_IMAGE="$SCRIPT_DIR/background.png"
+fi
 
 # The 'digital' dither config is near-identical to how the actual
 # Game Boy Camera renders.
