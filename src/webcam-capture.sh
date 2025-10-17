@@ -30,11 +30,12 @@ take_picture() {
 # an artificial timer here to just indicate how long it takes to take a picture.
 #
 countdown() {
-  local total=${GBCP_VIDEO_DEVICE_DELAY_HALFSECONDS:-6}
+  local half_seconds=${GBCP_VIDEO_DEVICE_DELAY_HALFSECONDS:-6}
+  local total=$((half_seconds * 2))  # Convert to quarter-seconds for smoother animation
   for ((i=total; i>=0; i--)); do
     local progress=$((total - i))
-    local filled=$((progress * 20 / total))
-    local empty=$((20 - filled))
+    local filled=$((progress * 2))  # 2 characters per quarter-second
+    local empty=$(((total - progress) * 2))
 
     # Build progress bar
     local bar=""
@@ -45,10 +46,10 @@ countdown() {
     if [ "$i" -eq 0 ]; then
       printf "\r[%s] 📸 " "$bar"
     else
-      local display=$(awk "BEGIN {print int(($i+1)/2)}")
+      local display=$(awk "BEGIN {print int(($i+3)/4)}")
       printf "\r[%s] %d " "$bar" "$display"
     fi
-    sleep .5
+    sleep .25
   done
   echo ""
 }
