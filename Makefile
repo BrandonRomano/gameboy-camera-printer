@@ -3,3 +3,6 @@ setup-env:
 
 watch: setup-env
 	source .env && ./src/watch.sh
+
+capture:
+	source .env && ./src/webcam-capture.sh

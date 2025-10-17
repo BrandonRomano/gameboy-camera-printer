@@ -23,3 +23,4 @@ A [Thermal Printer](https://en.wikipedia.org/wiki/Game_Boy_Printer#Thermal_paper
 
 - [ImageMagick](https://imagemagick.org)
 - [Python](https://www.python.org/downloads/)
+- [imagesnap](https://github.com/rharder/imagesnap)
