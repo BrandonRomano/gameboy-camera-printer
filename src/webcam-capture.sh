@@ -45,8 +45,8 @@ countdown() {
     if [ "$i" -eq 0 ]; then
       printf "\r[%s] 📸 " "$bar"
     else
-      local display=$(awk "BEGIN {printf \"%.1f\", $i/2}")
-      printf "\r[%s] %s " "$bar" "$display"
+      local display=$(awk "BEGIN {print int(($i+1)/2)}")
+      printf "\r[%s] %d " "$bar" "$display"
     fi
     sleep .5
   done
