@@ -58,7 +58,6 @@ while true; do
   # Wait for spacebar
   read -rsn1 key_input
   if [ -z "$key_input" ]; then
-    echo "Taking photo..."
     take_picture &
     countdown
   fi
