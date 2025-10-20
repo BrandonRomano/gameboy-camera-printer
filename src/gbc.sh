@@ -47,6 +47,7 @@ magick "$INPUT_FILE" \
 magick "$BACKGROUND_IMAGE" "$TMP_INTERMEDIARY" \
   -gravity center \
   -composite \
+  -flop \
   -scale 200% \
   "$OUTPUT_FILE"
 
