@@ -56,9 +56,8 @@ countdown() {
 
 # Loop forever
 while true; do
-  # Wait for spacebar
   read -rsn1 key_input
-  if [ -z "$key_input" ]; then
+  if [ "$key_input" = "[" ]; then
     take_picture &
     countdown
   fi
